@@ -1,0 +1,357 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="Shun Wakatsuki, 若月駿">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>コードブロックにファイル名を指定する (plugin)</title>
+    <link rel="stylesheet" href="/~swaka/assets/css/dynamic.css" type="text/css">
+    <!-- <link rel="stylesheet" href="/assets/css/syntax.css" type="text/css"></link>
+         <script type="text/javascript"
+         src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+         </script> -->
+    
+    <script type="text/javascript">
+     var params = new Object;
+     location.search.substring(1).split("&").forEach((str) => {
+       var key_value = str.split("=");
+       params[key_value[0]] = key_value[1];
+     })
+     document.addEventListener("DOMContentLoaded", () => {
+       /* if ("msg" in params) {
+        *   let elm = document.querySelector("#message");
+        *   elm.textContent = decodeURIComponent(params["msg"].replace(/\+/g, "%20"));
+        * } */
+       // div#message に redirect メッセージを表示する
+       if ("redirect_from" in params) {
+         let elm = document.querySelector("#message");
+         lang = "Japanese";
+         redirect_from = decodeURIComponent(params.redirect_from.replace(/\+/g, "%20"));
+         msg = `Redirected to the top page! No ${lang} page found for ${redirect_from}`;
+         elm.textContent = msg;
+       }
+       // アクセスカウンタを表示する
+       if (localStorage.getItem("show-counter") === "true"){
+         const counter = document.getElementById("access_counter");
+         counter.classList.remove("access_counter_hidden");
+       }
+     })
+    </script>
+  </head>
+  <body class="ja">
+
+    <script type="text/javascript">
+     function apply_theme(theme){
+  // document.body.classList.add(theme);
+  document.body.setAttribute("theme", theme);
+}
+
+function get_theme(){
+  const theme = localStorage.getItem("theme");
+  if (theme === "" || theme === null){
+    return "default";
+  }
+  return theme;
+}
+
+function load_theme(){
+  theme = get_theme();
+  if (theme) {
+    apply_theme(theme);
+  }
+}
+
+function save_theme(theme){
+  localStorage.setItem("theme", theme);
+}
+
+     load_theme();
+    </script>
+
+    <header class="page-header">
+      <div id="myname">
+        
+          若月 駿
+        
+      </div>
+
+      <!-- menu -->
+      <nav id="menu">
+        <input id="menu-input" type="checkbox" class="menu-unshown">
+        <label id="menu-open" for="menu-input"><span></span></label>
+        <label id="menu-close" class="menu-unshown" for="menu-input"></label>
+        <div id="menu-content">
+          <!-- language selector -->
+          
+
+<div id="lang_selector">
+  
+    
+    
+    
+    <span class="lang en" current="false">
+      <a href="/~swaka/?redirect_from=%2F2019%2F07%2F25%2Fnamed-codeblock-plugin.html" class="en" current="false">
+        En
+      </a>
+    </span>
+  
+    
+    
+    
+    <span class="lang ja" current="true">
+      <a href="/~swaka/2019/07/25/named-codeblock-plugin.html" class="ja" current="true">
+        Ja
+      </a>
+    </span>
+  
+</div>
+
+          <!-- main menu -->
+          <div id="main-menu">
+            
+              
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="false">
+                    <a href="/~swaka/index-ja.html"> Top</a>
+                  </div>
+                
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="false">
+                    <a href="/~swaka/cv-ja.html"> 履歴書</a>
+                  </div>
+                
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="false">
+                    <a href="/~swaka/research-ja.html"> 研究</a>
+                  </div>
+                
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="false">
+                    <a href="/~swaka/others-ja.html"> その他</a>
+                  </div>
+                
+              
+            
+          </div>
+        </div>
+      </nav>
+
+      <div id="info">
+        
+
+<span id="back">
+  
+  
+  
+    
+    
+      <a href="/~swaka/others/blog.html">&lt;&lt; ブログ</a>
+    
+  
+</span>
+
+        <span id="last-modified">
+          Updated on
+          2020-03-27
+          
+        </span>
+      </div>
+      <div id="message">
+      </div>
+    </header>
+
+    <div id="base_container">
+      
+
+<header class="blog-header">
+  <div class="post-info">
+    <div class="post-date">
+      
+
+
+  
+    2019年7月25日
+  
+
+
+    </div>
+    <div class="post-tags">
+      
+        <span class="post-tag">jekyll</span>
+      
+        <span class="post-tag">plugin</span>
+      
+        <span class="post-tag">documentation</span>
+      
+    </div>
+    </div>
+  <h1>コードブロックにファイル名を指定する (plugin)</h1>
+</header>
+
+<div class="blog_main">
+  
+    <div id="table-of-contents">
+      <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法</a></li>
+<li class="toc-entry toc-h2"><a href="#1-%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%80">1. プラグインを読み込む</a></li>
+<li class="toc-entry toc-h2"><a href="#2-css-%E3%82%92%E6%9B%B8%E3%81%8F">2. CSS を書く</a></li>
+<li class="toc-entry toc-h2">
+<a href="#3-markdown-%E5%86%85%E3%81%A7%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%90%8D%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%99%E3%82%8B">3. markdown 内でファイル名を指定する</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#%E3%83%90%E3%83%83%E3%82%AF%E3%82%AF%E3%82%A9%E3%83%BC%E3%83%883%E3%81%A4-fenced-code-block-%E3%82%92%E4%BD%BF%E3%81%86%E3%81%A8%E3%81%8D">バッククォート3つ (fenced code block) を使うとき</a></li>
+<li class="toc-entry toc-h3"><a href="#highlight-%E3%82%BF%E3%82%B0%E3%82%92%E4%BD%BF%E3%81%86%E3%81%A8%E3%81%8D">highlight タグを使うとき</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#%E5%8F%82%E8%80%83-named_codeblock_hookrb-%E3%81%AE%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89">参考: named_codeblock_hook.rb のソースコード</a></li>
+</ul>
+    </div>
+  
+
+  <div id="markdown-content">
+    <p><code class="highlighter-rouge highlight">Jekyll</code> + <code class="highlighter-rouge highlight">kramdown</code> の環境で，コードブロックにファイル名を表示する．</p>
+
+<ul>
+  <li>
+<a href="https://hachy.github.io/2018/11/14/add-file-name-to-code-block-in-jekyll-on-github-pages.html" target="_blank">GitHub Pagesでコードブロックにファイル名を表示する<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>
+をベースとして，色々と自分好みに変更した．</li>
+  <li>元々は javascript を利用していた (<a href="/~swaka/2019/07/12/named-codeblock.html">コードブロックにファイル名を指定する</a>) ものを，
+Jekyll の plugin を用いてビルド時に解決するようにした．</li>
+</ul>
+
+<h2 id="使用方法">使用方法</h2>
+<ol>
+  <li>プラグインを読み込む</li>
+  <li>CSS を適当に書く．</li>
+  <li>markdown 内のコードブロックでファイル名を指定する．</li>
+</ol>
+
+<h2 id="1-プラグインを読み込む">1. プラグインを読み込む</h2>
+<p><a href="https://github.com/shwaka/homepage/blob/master/jekyll/_plugins/named_codeblock_hook.rb">named_codeblock_hook.rb</a> を <code class="highlighter-rouge highlight">_plugins/</code> ディレクトリに配置する．</p>
+
+<h2 id="2-css-を書く">2. CSS を書く</h2>
+<div filename="style.css" class="language-css highlighter-rouge"><div class="highlight">
+<div class="named-block-filename">style.css</div>
+<pre class="highlight"><code><span class="nc">.named-block-filename</span><span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="n">hsl</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0%</span><span class="p">,</span> <span class="m">85%</span><span class="p">);</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span>
+  <span class="nl">padding-left</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="nl">margin-left</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div></div>
+
+<p>これはもちろんお好みで．</p>
+
+<h2 id="3-markdown-内でファイル名を指定する">3. markdown 内でファイル名を指定する</h2>
+<h3 id="バッククォート3つ-fenced-code-block-を使うとき">バッククォート3つ (fenced code block) を使うとき</h3>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">python
+</span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="p">```</span>
+{:filename="hoge.py"}
+</code></pre></div></div>
+
+<h3 id="highlight-タグを使うとき">
+<code class="highlighter-rouge highlight">highlight</code> タグを使うとき</h3>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">highlight</span><span class="w"> </span>python<span class="w"> </span><span class="p">%}</span>
+def add(a, b):
+    retrun a + b
+<span class="p">{%</span><span class="w"> </span><span class="nt">endhighlight</span><span class="w"> </span><span class="p">-%}</span>
+{:filename="hoge.py"}
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge highlight">{% endhighlight -%}</code> の最後に <code class="highlighter-rouge highlight">-</code> (ハイフン) が必要なことに注意</p>
+
+<h2 id="参考-named_codeblock_hookrb-のソースコード">参考: named_codeblock_hook.rb のソースコード</h2>
+<div filename="named_codeblock_hook.rb" class="language-ruby highlighter-rouge"><div class="highlight">
+<div class="named-block-filename">named_codeblock_hook.rb</div>
+<pre class="highlight"><code><span class="c1"># coding: utf-8</span>
+<span class="nb">require</span> <span class="s2">"nokogiri"</span>
+
+<span class="k">def</span> <span class="nf">insert_filename</span><span class="p">(</span><span class="n">to_insert</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+  <span class="n">div</span> <span class="o">=</span> <span class="no">Nokogiri</span><span class="o">::</span><span class="no">XML</span><span class="o">::</span><span class="no">Node</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"div"</span><span class="p">,</span> <span class="n">to_insert</span><span class="p">)</span>
+  <span class="n">div</span><span class="p">.</span><span class="nf">content</span> <span class="o">=</span> <span class="n">filename</span>
+  <span class="n">div</span><span class="p">[</span><span class="s2">"class"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"named-block-filename"</span>
+  <span class="n">to_insert</span><span class="p">.</span><span class="nf">prepend_child</span><span class="p">(</span><span class="n">div</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">named_codeblock_hook</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">page</span><span class="p">.</span><span class="nf">extname</span> <span class="o">!=</span> <span class="s2">".md"</span>
+    <span class="k">return</span>
+  <span class="k">end</span>
+  <span class="n">html_str</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="nf">output</span>
+  <span class="n">doc</span> <span class="o">=</span> <span class="no">Nokogiri</span><span class="o">::</span><span class="no">HTML</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">html_str</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="s2">"utf-8"</span><span class="p">)</span>
+  <span class="n">filename_attr</span> <span class="o">=</span> <span class="s2">"filename"</span>
+  <span class="c1"># highlight tag の場合</span>
+  <span class="n">blocks_tag</span> <span class="o">=</span> <span class="n">doc</span><span class="p">.</span><span class="nf">css</span><span class="p">(</span><span class="s2">"figure.highlight[</span><span class="si">#{</span><span class="n">filename_attr</span><span class="si">}</span><span class="s2">]"</span><span class="p">)</span>
+  <span class="n">blocks_tag</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">block</span><span class="o">|</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">block</span><span class="p">.</span><span class="nf">attribute</span><span class="p">(</span><span class="n">filename_attr</span><span class="p">)</span>
+    <span class="n">insert_filename</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+  <span class="k">end</span>
+  <span class="c1"># fenced code block (backquote 3つ) の場合</span>
+  <span class="n">blocks_fenced</span> <span class="o">=</span> <span class="n">doc</span><span class="p">.</span><span class="nf">css</span><span class="p">(</span><span class="s2">"div.highlighter-rouge[</span><span class="si">#{</span><span class="n">filename_attr</span><span class="si">}</span><span class="s2">]"</span><span class="p">)</span>
+  <span class="n">blocks_fenced</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">block</span><span class="o">|</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">block</span><span class="p">.</span><span class="nf">attribute</span><span class="p">(</span><span class="n">filename_attr</span><span class="p">)</span>
+    <span class="n">div_to_insert</span> <span class="o">=</span> <span class="n">block</span><span class="p">.</span><span class="nf">at_css</span><span class="p">(</span><span class="s2">"div.highlight"</span><span class="p">)</span>
+    <span class="n">insert_filename</span><span class="p">(</span><span class="n">div_to_insert</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+  <span class="k">end</span>
+  <span class="c1"># 書き出す</span>
+  <span class="n">page</span><span class="p">.</span><span class="nf">output</span> <span class="o">=</span> <span class="n">doc</span><span class="p">.</span><span class="nf">to_html</span>
+<span class="k">end</span>
+
+<span class="no">Jekyll</span><span class="o">::</span><span class="no">Hooks</span><span class="p">.</span><span class="nf">register</span> <span class="ss">:pages</span><span class="p">,</span> <span class="ss">:post_render</span> <span class="k">do</span> <span class="o">|</span><span class="n">page</span><span class="o">|</span>
+  <span class="n">named_codeblock_hook</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="no">Jekyll</span><span class="o">::</span><span class="no">Hooks</span><span class="p">.</span><span class="nf">register</span> <span class="ss">:documents</span><span class="p">,</span> <span class="ss">:post_render</span> <span class="k">do</span> <span class="o">|</span><span class="n">doc</span><span class="o">|</span>
+  <span class="n">named_codeblock_hook</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+</div></div>
+
+  </div>
+</div>
+
+<div id="blog_footer">
+  
+    <a href="/~swaka/2019/08/09/tikz.html">
+      &lt; tikz とか pgf とか beamer とか (new)
+    </a>
+  
+  
+    <a href="/~swaka/2019/07/23/refer.html">
+      (old) front matter で指定したページIDを用いて検索する &gt;
+    </a>
+  
+</div>
+
+    </div>
+
+    <!-- FC2カウンター ここから -->
+    <!-- 改行しちゃ駄目らしい -->
+    <div id="access_counter" class="access_counter_hidden">
+      <script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=36244360&amp;main=1"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=36244360&amp;main=1"></noscript>
+    </div>
+    <!-- FC2カウンター ここまで -->
+  </body>
+</html>

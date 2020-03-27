@@ -1,0 +1,16 @@
+{% comment %}
+-*- engine: liquid -*-
+args: pg
+{% endcomment %}
+
+{% if include.pg.title %}
+  {% assign name = include.pg.title %}
+{% else %}
+  {% assign name = include.pg.url %}
+{% endif %}
+<a href="{{ site.baseurl }}{{ include.pg.url }}">{{ name }}</a>
+{% if include.pg.lang %}
+  {% unless include.lang %}
+    ({% include get-lang-name.html lang=include.pg.lang as=page.lang %})
+  {% endunless %}
+{% endif %}

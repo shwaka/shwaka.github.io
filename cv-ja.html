@@ -1,0 +1,257 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="Shun Wakatsuki, 若月駿">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>履歴書</title>
+    <link rel="stylesheet" href="/~swaka/assets/css/dynamic.css" type="text/css">
+    <!-- <link rel="stylesheet" href="/assets/css/syntax.css" type="text/css"></link>
+         <script type="text/javascript"
+         src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+         </script> -->
+    
+    <script type="text/javascript">
+     var params = new Object;
+     location.search.substring(1).split("&").forEach((str) => {
+       var key_value = str.split("=");
+       params[key_value[0]] = key_value[1];
+     })
+     document.addEventListener("DOMContentLoaded", () => {
+       /* if ("msg" in params) {
+        *   let elm = document.querySelector("#message");
+        *   elm.textContent = decodeURIComponent(params["msg"].replace(/\+/g, "%20"));
+        * } */
+       // div#message に redirect メッセージを表示する
+       if ("redirect_from" in params) {
+         let elm = document.querySelector("#message");
+         lang = "Japanese";
+         redirect_from = decodeURIComponent(params.redirect_from.replace(/\+/g, "%20"));
+         msg = `Redirected to the top page! No ${lang} page found for ${redirect_from}`;
+         elm.textContent = msg;
+       }
+       // アクセスカウンタを表示する
+       if (localStorage.getItem("show-counter") === "true"){
+         const counter = document.getElementById("access_counter");
+         counter.classList.remove("access_counter_hidden");
+       }
+     })
+    </script>
+  </head>
+  <body class="ja">
+
+    <script type="text/javascript">
+     function apply_theme(theme){
+  // document.body.classList.add(theme);
+  document.body.setAttribute("theme", theme);
+}
+
+function get_theme(){
+  const theme = localStorage.getItem("theme");
+  if (theme === "" || theme === null){
+    return "default";
+  }
+  return theme;
+}
+
+function load_theme(){
+  theme = get_theme();
+  if (theme) {
+    apply_theme(theme);
+  }
+}
+
+function save_theme(theme){
+  localStorage.setItem("theme", theme);
+}
+
+     load_theme();
+    </script>
+
+    <header class="page-header">
+      <div id="myname">
+        
+          若月 駿
+        
+      </div>
+
+      <!-- menu -->
+      <nav id="menu">
+        <input id="menu-input" type="checkbox" class="menu-unshown">
+        <label id="menu-open" for="menu-input"><span></span></label>
+        <label id="menu-close" class="menu-unshown" for="menu-input"></label>
+        <div id="menu-content">
+          <!-- language selector -->
+          
+
+<div id="lang_selector">
+  
+    
+    
+    
+    <span class="lang en" current="false">
+      <a href="/~swaka/cv-en.html" class="en" current="false">
+        En
+      </a>
+    </span>
+  
+    
+    
+    
+    <span class="lang ja" current="true">
+      <a href="/~swaka/cv-ja.html" class="ja" current="true">
+        Ja
+      </a>
+    </span>
+  
+</div>
+
+          <!-- main menu -->
+          <div id="main-menu">
+            
+              
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="false">
+                    <a href="/~swaka/index-ja.html"> Top</a>
+                  </div>
+                
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="true">
+                    <a href="/~swaka/cv-ja.html"> 履歴書</a>
+                  </div>
+                
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="false">
+                    <a href="/~swaka/research-ja.html"> 研究</a>
+                  </div>
+                
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="false">
+                    <a href="/~swaka/others-ja.html"> その他</a>
+                  </div>
+                
+              
+            
+          </div>
+        </div>
+      </nav>
+
+      <div id="info">
+        
+
+<span id="back">
+  
+  
+  
+</span>
+
+        <span id="last-modified">
+          Updated on
+          2020-03-27
+          
+        </span>
+      </div>
+      <div id="message">
+      </div>
+    </header>
+
+    <div id="base_container">
+      
+
+<h1>
+  履歴書
+</h1>
+
+<div id="main">
+  <table id="cv">
+  <tbody>
+    <tr>
+      <td>名前:</td>
+      <td>若月 駿</td>
+    </tr>
+    <tr>
+      <td>Name:</td>
+      <td>Shun Wakatsuki</td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td>swaka[AT]ms.u-tokyo.ac.jp</td>
+    </tr>
+    <tr>
+      <td>出身地:</td>
+      <td>神奈川県</td>
+    </tr>
+    <tr>
+      <td>国籍:</td>
+      <td>日本</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="list-header" id="current-position">Current position:</h3>
+<ul id="current-position">
+  <li>
+<a href="http://www.ms.u-tokyo.ac.jp/index-j.html" target="_blank">東京大学大学院 数理科学研究科<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>
+特任研究員</li>
+</ul>
+
+<h2 id="学歴">学歴</h2>
+<ul>
+  <li>2010年3月 開成高等学校卒</li>
+  <li>2014年3月 東京大学理学部数学科卒</li>
+  <li>2016年3月 東京大学大学院数理科学研究科 修士課程修了</li>
+  <li>2019年9月 東京大学大学院数理科学研究科 博士課程修了
+    <ul>
+      <li>博士(数理科学) 2019年9月13日 授与</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="職歴">職歴</h2>
+<ul>
+  <li>2014年10月–2019年9月
+<a href="http://fmsp.ms.u-tokyo.ac.jp/index.html" target="_blank">FMSP<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>
+コース生</li>
+  <li>2016年4月–2019年3月
+<a href="https://www.jsps.go.jp/index.html" target="_blank">日本学術振興会<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>
+特別研究員 (DC1)</li>
+  <li>2019年9月–2020年1月
+<a href="https://www.jsps.go.jp/index.html" target="_blank">日本学術振興会<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>
+若手研究者海外挑戦プログラム
+にて，Stockholm 大学に滞在</li>
+  <li>2020年1月–2020年3月
+<a href="http://www.ms.u-tokyo.ac.jp/index-j.html" target="_blank">東京大学大学院 数理科学研究科<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>
+特任研究員</li>
+</ul>
+
+</div>
+
+    </div>
+
+    <!-- FC2カウンター ここから -->
+    <!-- 改行しちゃ駄目らしい -->
+    <div id="access_counter" class="access_counter_hidden">
+      <script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=36244360&amp;main=1"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=36244360&amp;main=1"></noscript>
+    </div>
+    <!-- FC2カウンター ここまで -->
+  </body>
+</html>

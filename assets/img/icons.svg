@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    
+    
+    <symbol id="target_blank" viewBox="0 0 10 10">
+      <polyline points="5.7,1.7
+                        1.7,1.7
+                        1.7,8.3
+                        8.3,8.3
+                        8.3,4.3"
+                stroke="var(--icon-color,gray)" stroke-width="1.5" fill="none" />
+      <polygon points="5.7,0
+                       10,0
+                       10,4.3"
+               fill="var(--icon-color,gray)" stroke="none" />
+      <line x1="3.4" y1="6.6"
+            x2="8.3" y2="1.7"
+            stroke="var(--icon-color,gray)" stroke-width="1.5" />
+    </symbol>
+  </defs>
+</svg>

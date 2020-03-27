@@ -1,0 +1,198 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="Shun Wakatsuki, 若月駿">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Others</title>
+    <link rel="stylesheet" href="/~swaka/assets/css/dynamic.css" type="text/css">
+    <!-- <link rel="stylesheet" href="/assets/css/syntax.css" type="text/css"></link>
+         <script type="text/javascript"
+         src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+         </script> -->
+    
+    <script type="text/javascript">
+     var params = new Object;
+     location.search.substring(1).split("&").forEach((str) => {
+       var key_value = str.split("=");
+       params[key_value[0]] = key_value[1];
+     })
+     document.addEventListener("DOMContentLoaded", () => {
+       /* if ("msg" in params) {
+        *   let elm = document.querySelector("#message");
+        *   elm.textContent = decodeURIComponent(params["msg"].replace(/\+/g, "%20"));
+        * } */
+       // div#message に redirect メッセージを表示する
+       if ("redirect_from" in params) {
+         let elm = document.querySelector("#message");
+         lang = "English";
+         redirect_from = decodeURIComponent(params.redirect_from.replace(/\+/g, "%20"));
+         msg = `Redirected to the top page! No ${lang} page found for ${redirect_from}`;
+         elm.textContent = msg;
+       }
+       // アクセスカウンタを表示する
+       if (localStorage.getItem("show-counter") === "true"){
+         const counter = document.getElementById("access_counter");
+         counter.classList.remove("access_counter_hidden");
+       }
+     })
+    </script>
+  </head>
+  <body class="en">
+
+    <script type="text/javascript">
+     function apply_theme(theme){
+  // document.body.classList.add(theme);
+  document.body.setAttribute("theme", theme);
+}
+
+function get_theme(){
+  const theme = localStorage.getItem("theme");
+  if (theme === "" || theme === null){
+    return "default";
+  }
+  return theme;
+}
+
+function load_theme(){
+  theme = get_theme();
+  if (theme) {
+    apply_theme(theme);
+  }
+}
+
+function save_theme(theme){
+  localStorage.setItem("theme", theme);
+}
+
+     load_theme();
+    </script>
+
+    <header class="page-header">
+      <div id="myname">
+        
+          Shun Wakatsuki
+        
+      </div>
+
+      <!-- menu -->
+      <nav id="menu">
+        <input id="menu-input" type="checkbox" class="menu-unshown">
+        <label id="menu-open" for="menu-input"><span></span></label>
+        <label id="menu-close" class="menu-unshown" for="menu-input"></label>
+        <div id="menu-content">
+          <!-- language selector -->
+          
+
+<div id="lang_selector">
+  
+    
+    
+    
+    <span class="lang en" current="true">
+      <a href="/~swaka/others-en.html" class="en" current="true">
+        En
+      </a>
+    </span>
+  
+    
+    
+    
+    <span class="lang ja" current="false">
+      <a href="/~swaka/others-ja.html" class="ja" current="false">
+        Ja
+      </a>
+    </span>
+  
+</div>
+
+          <!-- main menu -->
+          <div id="main-menu">
+            
+              
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="false">
+                    <a href="/~swaka/"> Top</a>
+                  </div>
+                
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="false">
+                    <a href="/~swaka/cv-en.html"> CV</a>
+                  </div>
+                
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="false">
+                    <a href="/~swaka/research-en.html"> Research</a>
+                  </div>
+                
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="true">
+                    <a href="/~swaka/others-en.html"> Others</a>
+                  </div>
+                
+              
+            
+          </div>
+        </div>
+      </nav>
+
+      <div id="info">
+        
+
+<span id="back">
+  
+  
+  
+</span>
+
+        <span id="last-modified">
+          Updated on
+          2020-03-27
+          
+        </span>
+      </div>
+      <div id="message">
+      </div>
+    </header>
+
+    <div id="base_container">
+      
+
+<h1>
+  Others
+</h1>
+
+<div id="main">
+  <p><a href="/~swaka/others/list-of-pages-en.html">List of pages</a></p>
+
+</div>
+
+    </div>
+
+    <!-- FC2カウンター ここから -->
+    <!-- 改行しちゃ駄目らしい -->
+    <div id="access_counter" class="access_counter_hidden">
+      <script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=36244360&amp;main=1"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=36244360&amp;main=1"></noscript>
+    </div>
+    <!-- FC2カウンター ここまで -->
+  </body>
+</html>

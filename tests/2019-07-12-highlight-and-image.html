@@ -1,0 +1,289 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="Shun Wakatsuki, 若月駿">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ハイライトと画像のテスト</title>
+    <link rel="stylesheet" href="/~swaka/assets/css/dynamic.css" type="text/css">
+    <!-- <link rel="stylesheet" href="/assets/css/syntax.css" type="text/css"></link>
+         <script type="text/javascript"
+         src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+         </script> -->
+    
+    <script type="text/javascript">
+     var params = new Object;
+     location.search.substring(1).split("&").forEach((str) => {
+       var key_value = str.split("=");
+       params[key_value[0]] = key_value[1];
+     })
+     document.addEventListener("DOMContentLoaded", () => {
+       /* if ("msg" in params) {
+        *   let elm = document.querySelector("#message");
+        *   elm.textContent = decodeURIComponent(params["msg"].replace(/\+/g, "%20"));
+        * } */
+       // div#message に redirect メッセージを表示する
+       if ("redirect_from" in params) {
+         let elm = document.querySelector("#message");
+         lang = "Japanese";
+         redirect_from = decodeURIComponent(params.redirect_from.replace(/\+/g, "%20"));
+         msg = `Redirected to the top page! No ${lang} page found for ${redirect_from}`;
+         elm.textContent = msg;
+       }
+       // アクセスカウンタを表示する
+       if (localStorage.getItem("show-counter") === "true"){
+         const counter = document.getElementById("access_counter");
+         counter.classList.remove("access_counter_hidden");
+       }
+     })
+    </script>
+  </head>
+  <body class="ja">
+
+    <script type="text/javascript">
+     function apply_theme(theme){
+  // document.body.classList.add(theme);
+  document.body.setAttribute("theme", theme);
+}
+
+function get_theme(){
+  const theme = localStorage.getItem("theme");
+  if (theme === "" || theme === null){
+    return "default";
+  }
+  return theme;
+}
+
+function load_theme(){
+  theme = get_theme();
+  if (theme) {
+    apply_theme(theme);
+  }
+}
+
+function save_theme(theme){
+  localStorage.setItem("theme", theme);
+}
+
+     load_theme();
+    </script>
+
+    <header class="page-header">
+      <div id="myname">
+        
+          若月 駿
+        
+      </div>
+
+      <!-- menu -->
+      <nav id="menu">
+        <input id="menu-input" type="checkbox" class="menu-unshown">
+        <label id="menu-open" for="menu-input"><span></span></label>
+        <label id="menu-close" class="menu-unshown" for="menu-input"></label>
+        <div id="menu-content">
+          <!-- language selector -->
+          
+
+<div id="lang_selector">
+  
+    
+    
+    
+    <span class="lang en" current="false">
+      <a href="/~swaka/?redirect_from=%2Ftests%2F2019-07-12-highlight-and-image.html" class="en" current="false">
+        En
+      </a>
+    </span>
+  
+    
+    
+    
+    <span class="lang ja" current="true">
+      <a href="/~swaka/tests/2019-07-12-highlight-and-image.html" class="ja" current="true">
+        Ja
+      </a>
+    </span>
+  
+</div>
+
+          <!-- main menu -->
+          <div id="main-menu">
+            
+              
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="false">
+                    <a href="/~swaka/index-ja.html"> Top</a>
+                  </div>
+                
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="false">
+                    <a href="/~swaka/cv-ja.html"> 履歴書</a>
+                  </div>
+                
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="false">
+                    <a href="/~swaka/research-ja.html"> 研究</a>
+                  </div>
+                
+              
+                
+                
+                  
+
+                  
+                  <div class="menu_item" current="false">
+                    <a href="/~swaka/others-ja.html"> その他</a>
+                  </div>
+                
+              
+            
+          </div>
+        </div>
+      </nav>
+
+      <div id="info">
+        
+
+<span id="back">
+  
+  
+  
+    
+    
+      <a href="/~swaka/others/list-of-tests.html">&lt;&lt; test ページたち</a>
+    
+  
+</span>
+
+        <span id="last-modified">
+          Updated on
+          2020-03-27
+          
+        </span>
+      </div>
+      <div id="message">
+      </div>
+    </header>
+
+    <div id="base_container">
+      
+
+<h1>
+  ハイライトと画像のテスト
+</h1>
+
+<div id="main">
+  <p>色々とテストしてみる．</p>
+
+<h2 id="シンタックスハイライトコードブロック">シンタックスハイライト(コードブロック)</h2>
+<p>2通りのやり方がある．</p>
+<ul>
+  <li>
+<code class="highlighter-rouge highlight">highlight</code> タグを用いて <code class="highlighter-rouge highlight">{% highlight tex %}</code> と
+<code class="highlighter-rouge highlight">{% endhighlight %}</code> で囲う</li>
+  <li>backquote 3つで囲う</li>
+</ul>
+
+<p>見て分かるように，どっちを使うかによって出力が微妙に変わる</p>
+
+<p>参考: <a href="http://sangsoonam.github.io/2019/01/20/syntax-highlighting-in-jekyll.html" target="_blank">Syntax Highlighting in Jekyll<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a></p>
+
+<h3 id="highlight-タグ">
+<code class="highlighter-rouge highlight">highlight</code> タグ</h3>
+
+<figure class="highlight"><pre><code class="language-tex" data-lang="tex">math: <span class="p">$</span><span class="nv">\int</span><span class="p">_</span><span class="m">0</span><span class="p">^</span><span class="m">1</span><span class="nb"> x dx </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="p">{</span><span class="m">1</span><span class="p">}{</span><span class="m">2</span><span class="p">}$</span>
+<span class="k">\textit</span><span class="p">{</span>hoge<span class="p">}</span></code></pre></figure>
+
+<h3 id="backquote-3つ">backquote 3つ</h3>
+<div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>math: <span class="p">$</span><span class="nv">\int</span><span class="p">_</span><span class="m">0</span><span class="p">^</span><span class="m">1</span><span class="nb"> x dx </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="p">{</span><span class="m">1</span><span class="p">}{</span><span class="m">2</span><span class="p">}$</span>
+<span class="k">\textit</span><span class="p">{</span>hoge<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="行番号つきのコードブロック">行番号つきのコードブロック</h2>
+<p><code class="highlighter-rouge highlight">highlight</code> タグの方に <code class="highlighter-rouge highlight">linenos</code> オプションをつける</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td>
+<td class="code"><pre><span class="k">class</span> <span class="nc">Hoge</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">foo</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="n">foo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bar</span> <span class="o">=</span> <span class="p">(</span><span class="s">"string"</span><span class="p">,</span> <span class="mf">3.14159</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+        <span class="c1"># This is a comment</span>
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<h2 id="コードブロックにファイル名をつけたい">コードブロックにファイル名をつけたい</h2>
+<p>ここで色々とテストして出来上がったものを
+<a href="/~swaka/2019/07/12/named-codeblock.html">コードブロックにファイル名を指定する</a>
+にまとめておいた．</p>
+
+<ul>
+  <li>
+<a href="https://stackoverflow.com/questions/25881134/showing-file-name-in-jekyll-with-pygments-code-highlight">Showing file name in Jekyll with Pygments code highlight</a> こっちは微妙だった</li>
+  <li>
+<a href="https://hachy.github.io/2018/11/14/add-file-name-to-code-block-in-jekyll-on-github-pages.html">GitHub Pagesでコードブロックにファイル名を表示する</a> これを自分好みに修正した</li>
+</ul>
+
+<figure class="highlight named-block" filename="hoge.rb"><div class="named-block-filename">hoge.rb</div>
+<pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span></code></pre></figure>
+
+<figure class="highlight named-block" filename="hoge.rb"><div class="named-block-filename">hoge.rb</div>
+<pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td>
+<td class="code"><pre><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<h3 id="class-test">class test</h3>
+<div class="language-python named-block highlighter-rouge" filename="hoge.py"><div class="highlight">
+<div class="named-block-filename">hoge.py</div>
+<pre class="highlight"><code><span class="k">def</span> <span class="nf">hoge</span><span class="p">():</span>
+    <span class="k">return</span> <span class="bp">True</span>
+</code></pre>
+</div></div>
+
+<h2 id="画像の読み込み">画像の読み込み</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">数学者の画像(いらすとや)</span><span class="p">](</span><span class="sx">/~swaka/assets/img/job_suugakusya.png</span> <span class="nn">"数学者"</span><span class="p">)</span>{:width="40%"}
+</code></pre></div></div>
+
+<p><img src="/~swaka/assets/img/job_suugakusya.png" alt="数学者の画像(いらすとや)" title="数学者" width="40%"></p>
+
+</div>
+
+    </div>
+
+    <!-- FC2カウンター ここから -->
+    <!-- 改行しちゃ駄目らしい -->
+    <div id="access_counter" class="access_counter_hidden">
+      <script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=36244360&amp;main=1"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=36244360&amp;main=1"></noscript>
+    </div>
+    <!-- FC2カウンター ここまで -->
+  </body>
+</html>

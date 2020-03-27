@@ -1,0 +1,317 @@
+<html>
+  <head class="hoge">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="Shun Wakatsuki, 若月駿">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>CSSを動的に指定する</title>
+    <link rel="stylesheet" href="/~swaka/assets/css/dynamic.css" type="text/css">
+  </head>
+  <body class="ja">
+    <script type="text/javascript">
+     const style_total = 10;
+     var style_id = Math.floor(Math.random() * style_total);
+     var n = Math.floor(Math.random() * 2);
+     lightness = ["light", "dark"][n];
+     theme = `${lightness}-${style_id}`;
+     function apply_theme(theme){
+  // document.body.classList.add(theme);
+  document.body.setAttribute("theme", theme);
+}
+
+function get_theme(){
+  const theme = localStorage.getItem("theme");
+  if (theme === "" || theme === null){
+    return "default";
+  }
+  return theme;
+}
+
+function load_theme(){
+  theme = get_theme();
+  if (theme) {
+    apply_theme(theme);
+  }
+}
+
+function save_theme(theme){
+  localStorage.setItem("theme", theme);
+}
+
+     apply_theme(theme);
+    </script>
+    <header>
+      <div id="myname">
+        
+          若月 駿
+        
+      </div>
+
+      <!-- language selector -->
+      
+
+<div id="lang_selector">
+  
+    
+    
+    
+    <span class="lang en" current="false">
+      <a href="/~swaka/?redirect_from=%2Ftests%2Fdynamic-css.html" class="en" current="false">
+        En
+      </a>
+    </span>
+  
+    
+    
+    
+    <span class="lang ja" current="true">
+      <a href="/~swaka/tests/dynamic-css.html" class="ja" current="true">
+        Ja
+      </a>
+    </span>
+  
+</div>
+
+
+      <div id="info">
+        <span id="back">
+          
+          
+            <a href="/~swaka/others/list-of-tests.html">&lt;&lt; test ページたち</a>
+          
+        </span>
+        <span id="last-modified">
+          Updated on
+          2020-03-27
+          
+        </span>
+      </div>
+    </header>
+
+    <div id="base_container">
+      <div>
+        1ページにまとめてみた．
+        試しにやってみただけなので，レイアウトなどは全然調整してないです．
+        javascript を使ってランダムにCSSを読み込んでいます．
+      </div>
+
+      
+        
+        <h1>Top</h1>
+        <h2 id="shun-wakatsuki">Shun Wakatsuki</h2>
+<ul>
+  <li>
+<a href="http://www.ms.u-tokyo.ac.jp/index.html" target="_blank">東京大学大学院 数理科学研究科<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>
+特任研究員</li>
+  <li>
+<strong>email</strong>: swaka[AT]ms.u-tokyo.ac.jp</li>
+  <li>
+<strong>address</strong>: 〒153-8914 東京都目黒区駒場3-8-1</li>
+</ul>
+
+<h2 id="研究分野">研究分野</h2>
+<ul>
+  <li>有理ホモトピー論</li>
+  <li>ストリングトポロジー, ブレーントポロジー</li>
+</ul>
+
+      
+        
+        <h1>履歴書</h1>
+        <table id="cv">
+  <tbody>
+    <tr>
+      <td>名前:</td>
+      <td>若月 駿</td>
+    </tr>
+    <tr>
+      <td>Name:</td>
+      <td>Shun Wakatsuki</td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td>swaka[AT]ms.u-tokyo.ac.jp</td>
+    </tr>
+    <tr>
+      <td>出身地:</td>
+      <td>神奈川県</td>
+    </tr>
+    <tr>
+      <td>国籍:</td>
+      <td>日本</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="list-header" id="current-position">Current position:</h3>
+<ul id="current-position">
+  <li>
+<a href="http://www.ms.u-tokyo.ac.jp/index-j.html" target="_blank">東京大学大学院 数理科学研究科<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>
+特任研究員</li>
+</ul>
+
+<h2 id="学歴">学歴</h2>
+<ul>
+  <li>2010年3月 開成高等学校卒</li>
+  <li>2014年3月 東京大学理学部数学科卒</li>
+  <li>2016年3月 東京大学大学院数理科学研究科 修士課程修了</li>
+  <li>2019年9月 東京大学大学院数理科学研究科 博士課程修了
+    <ul>
+      <li>博士(数理科学) 2019年9月13日 授与</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="職歴">職歴</h2>
+<ul>
+  <li>2014年10月–2019年9月
+<a href="http://fmsp.ms.u-tokyo.ac.jp/index.html" target="_blank">FMSP<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>
+コース生</li>
+  <li>2016年4月–2019年3月
+<a href="https://www.jsps.go.jp/index.html" target="_blank">日本学術振興会<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>
+特別研究員 (DC1)</li>
+  <li>2019年9月–2020年1月
+<a href="https://www.jsps.go.jp/index.html" target="_blank">日本学術振興会<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>
+若手研究者海外挑戦プログラム
+にて，Stockholm 大学に滞在</li>
+  <li>2020年1月–2020年3月
+<a href="http://www.ms.u-tokyo.ac.jp/index-j.html" target="_blank">東京大学大学院 数理科学研究科<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>
+特任研究員</li>
+</ul>
+
+      
+        
+        <h1>研究</h1>
+        
+  <a href="/~swaka/research-dynamic-ja.html">表示形式が選択可能なページ</a>
+  も用意したので，
+  お好みでご覧ください．
+
+
+<h2>Publications</h2>
+<div>
+<h3>論文・プレプリント</h3>
+<ol reversed="" class="articles">
+<li>
+<span class="article-title">New construction of the brane coproduct and vanishing of cup products on sphere spaces</span>, <span><a href="https://arxiv.org/abs/1905.00644" target="_blank" class="arxiv">1905.00644<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a></span>
+</li>
+<li>
+<span class="article-title">Nontrivial example of the composition of the brane product and coproduct on Gorenstein spaces</span>, <span><a href="https://www.intlpress.com/site/pub/pages/journals/items/hha/content/vols/0022/0001/a019/" target="_blank">Homology Homotopy Appl., 22:333--341<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a></span>, <span><a href="https://arxiv.org/abs/1902.10936" target="_blank" class="arxiv">1902.10936<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a></span>
+</li>
+<li>
+<span class="article-title">Coproducts in brane topology</span>, <span><a href="https://msp.org/agt/2019/19-6/p08.xhtml" target="_blank">Algebr. Geom. Topol., 19(6):2961--2988<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a></span>, <span><a href="https://arxiv.org/abs/1802.04973" target="_blank" class="arxiv">1802.04973<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a></span>
+</li>
+<li>
+<span class="article-title">Description and triviality of the loop products and coproducts for rational Gorenstein spaces</span>, <span><a href="https://arxiv.org/abs/1612.03563" target="_blank" class="arxiv">1612.03563<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a></span>
+</li>
+</ol>
+<h3>その他</h3>
+<ol reversed="" class="articles"><li>
+<span class="article-title">String topology on rational Gorenstein spaces</span>, <span><a href="http://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/2060.html" target="_blank">京都大学数理解析研究所講究録 No.~2060 「変換群を核とする代数的位相幾何学」<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a></span>, <span>2017</span>
+</li></ol>
+</div>
+<h2>講演一覧</h2>
+<div>
+<h3>国際研究集会</h3>
+<ol reversed="" class="talks">
+<li>
+<span>Gorenstein spaces and string topology</span>, <a href="https://www2.math.kyushu-u.ac.jp/~iwase/BDHT/Home.html" target="_blank">Building-up Differential Homotopy Theory<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>Kyushu University</span>, <span>2019年3月</span>
+</li>
+<li>
+<span>Coproducts in brane topology on rational Gorenstein spaces</span>, <a href="https://www.math-stockholm.se/en/kalender/shun-wakatsuki-coproducts-in-brane-topology-on-rational-gorenstein-spaces-1.845240?date=2018-09-25&amp;orgdate=2018-09-01&amp;length=1&amp;orglength=30" target="_blank">Topological Activities<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>Stockholm University</span>, <span>2018年9月</span>
+</li>
+<li>
+<span>Coproducts in brane topology on rational Gorenstein spaces</span>, <a href="https://www.math.kyoto-u.ac.jp/~kishi/conference/kyoto2018/top" target="_blank">Mapping Spaces in Algebraic Topology<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>Kyoto University</span>, <span>2018年8月</span>
+</li>
+<li>
+<span>String topology on rational Gorenstein spaces</span>, <a href="https://www.math-stockholm.se/en/konferenser-och-akti/young-topologists-meeting-2017-1.670396" target="_blank">Young Topologists Meeting<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>KTH Royal Institute of Technology in Stockholm, Sweden</span>, <span>2017年7月</span>
+</li>
+</ol>
+<h3>国内研究集会</h3>
+<ol reversed="" class="talks">
+<li>
+<span>Brane coproducts and their applications</span>, <a href="http://www.math.akita-u.ac.jp/ts2019/" target="_blank">トポロジーシンポジウム<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>秋田市・にぎわい交流館AU（あう）</span>, <span>2019年8月</span>
+</li>
+<li>
+<span>Brane coproducts and their applications</span>, <a href="http://www.ms.u-tokyo.ac.jp/seminar/topology/index.html" target="_blank">トポロジー火曜セミナー<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>東京大学</span>, <span>2019年7月</span>
+</li>
+<li>
+<span>Brane coproducts and vanishing of cup products on sphere spaces</span>, <a href="http://math.shinshu-u.ac.jp/~topology/seminar/" target="_blank">信州トポロジーセミナー<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>信州大学</span>, <span>2019年6月</span>
+</li>
+<li>
+<span>Generalization of the loop coproduct</span>, <a href="http://mathsoc.jp/meeting/titech19mar/" target="_blank">日本数学会・2019年度年会<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>東京工業大学</span>, <span>2019年3月</span>
+</li>
+<li>
+<span>Properties of brane operations</span>, <a href="https://www.math.kyoto-u.ac.jp/~kishi/conference/tokyo2018.html" target="_blank">ホモトピー論シンポジウム2018<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>東京工業大学</span>, <span>2018年11月</span>
+</li>
+<li>
+<span>Coproducts in brane topology</span>, <span>ストリングトポロジーとその周辺</span>, <span>四季の湯強羅静雲荘</span>, <span>2017年12月</span>
+</li>
+<li>
+<span>Brane topology on rational Gorenstein spaces</span>, <a href="http://bach.kinwu.ac.jp/homotopy2017/" target="_blank">ホモトピー論シンポジウム<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>高松市生涯学習センター(まなびCAN)</span>, <span>2017年11月</span>
+</li>
+<li>
+<span>String topology on rational Gorenstein spaces</span>, <a href="https://www.rs.tus.ac.jp/math2/math2/tsatoh/tsatoh-homepage/rims_trans_2017_program.pdf" target="_blank">変換群を核とする代数的位相幾何学<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>京都大学数理解析研究所</span>, <span>2017年5月</span>
+</li>
+<li>
+<span>Sullivan 代数の semi-pure 性について</span>, <a href="https://mathsoc.jp/meeting/tmu17mar/" target="_blank">日本数学会 2017年度年会<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>首都大学東京</span>, <span>2017年3月</span>
+</li>
+<li>
+<span>Description and triviality of the loop products and coproducts for rational Gorenstein spaces</span>, <a href="http://math.shinshu-u.ac.jp/~topology/seminar/archive16.html" target="_blank">信州トポロジーセミナー<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>信州大学</span>, <span>2016年11月</span>
+</li>
+<li>
+<span>Computation of string operations using rational homotopy theory</span>, <a href="http://www.math.akita-u.ac.jp/tc2016/" target="_blank">トポロジーとコンピュータ 2016<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>秋田市 カレッジプラザ</span>, <span>2016年10月</span>
+</li>
+<li>
+<span>String topology on rational Gorenstein spaces</span>, <a href="http://mathsoc.jp/meeting/kansai16sept/" target="_blank">日本数学会 秋季総合分科会<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>関西大学</span>, <span>2016年9月</span>
+</li>
+<li>
+<span>Description and triviality of the loop products and coproducts for rational Gorenstein spaces</span>, <a href="https://www.ms.u-tokyo.ac.jp/~tado/riemann_surface16.html" target="_blank">リーマン面に関連する位相幾何学<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>東京大学</span>, <span>2016年9月</span>
+</li>
+<li>
+<span>有理Gorenstein空間上のストリングトポロジーについて</span>, <span>リーマン面の幾何の展開</span>, <span>KKR伊豆長岡 千歳荘</span>, <span>2015年12月</span>
+</li>
+<li>
+<span>有理Gorenstein空間上のストリングトポロジーについて</span>, <a href="http://www.math.u-ryukyu.ac.jp/~tsukuda/homotopy2015/" target="_blank">ホモトピー論シンポジウム<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>, <span>姫路・西はりま地場産業センター(じばさんびる)</span>, <span>2015年11月</span>
+</li>
+</ol>
+</div>
+
+
+      
+        
+        <h1>その他</h1>
+        <!-- ## Teaching Assistant -->
+<!-- <a href="KS/KS.html">計算数学</a> -->
+
+<h2 id="ノート">ノート</h2>
+<ul>
+  <li>
+<a href="/~swaka/notes/HomotopyAssociativeAlgebras.pdf" target="_blank">HomotopyAssociativeAlgebras.pdf<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>
+(信州春の学校 第4回 勉強会)</li>
+  <li>
+<a href="/~swaka/notes/RationalHomotopyTheory_seminar.pdf" target="_blank">有理ホモトピー論入門<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a>
+(2015年7月，身内でのセミナー)</li>
+</ul>
+
+<h2 id="このサイトについて">このサイトについて</h2>
+<p>このサイトは <a href="https://jekyllrb.com/" target="_blank">Jekyll<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a> 製で，
+ソースコードは <a href="https://github.com/shwaka/homepage" target="_blank">GitHub<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a> で公開しています．
+(もちろん内容はご自身のものに置き換えるという前提で)
+再利用もご自由にしていただいて構いません．</p>
+
+<h2 id="その他">その他</h2>
+<ul>
+  <li><a href="/~swaka/others/list-of-pages-ja.html">ページ一覧</a></li>
+  <li><a href="/~swaka/others/blog.html">ブログ</a></li>
+  <li><a href="/~swaka/others/config.html">設定</a></li>
+  <li><a href="/~swaka/others/old-page.html">旧形式のページ</a></li>
+  <li><a href="/~swaka/others/list-of-tests.html">test ページたち</a></li>
+</ul>
+
+      
+
+
+    </div>
+  </body>
+</html>
