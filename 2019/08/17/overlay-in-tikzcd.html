@@ -4,7 +4,7 @@
     <meta name="keywords" content="Shun Wakatsuki, 若月駿">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>beamer のスライドにおいて，tikzcd内でoverlayみたいなことをする</title>
-    <link rel="stylesheet" href="/~swaka/assets/css/dynamic.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/dynamic.css" type="text/css">
     <!-- <link rel="stylesheet" href="/assets/css/syntax.css" type="text/css"></link>
          <script type="text/javascript"
          src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
@@ -89,7 +89,7 @@ function save_theme(theme){
     
     
     <span class="lang en" current="false">
-      <a href="/~swaka/?redirect_from=%2F2019%2F08%2F17%2Foverlay-in-tikzcd.html" class="en" current="false">
+      <a href="/?redirect_from=%2F2019%2F08%2F17%2Foverlay-in-tikzcd.html" class="en" current="false">
         En
       </a>
     </span>
@@ -98,7 +98,7 @@ function save_theme(theme){
     
     
     <span class="lang ja" current="true">
-      <a href="/~swaka/2019/08/17/overlay-in-tikzcd.html" class="ja" current="true">
+      <a href="/2019/08/17/overlay-in-tikzcd.html" class="ja" current="true">
         Ja
       </a>
     </span>
@@ -116,7 +116,7 @@ function save_theme(theme){
 
                   
                   <div class="menu_item" current="false">
-                    <a href="/~swaka/index-ja.html"> Top</a>
+                    <a href="/index-ja.html"> Top</a>
                   </div>
                 
               
@@ -126,7 +126,7 @@ function save_theme(theme){
 
                   
                   <div class="menu_item" current="false">
-                    <a href="/~swaka/cv-ja.html"> 履歴書</a>
+                    <a href="/cv-ja.html"> 履歴書</a>
                   </div>
                 
               
@@ -136,7 +136,7 @@ function save_theme(theme){
 
                   
                   <div class="menu_item" current="false">
-                    <a href="/~swaka/research-ja.html"> 研究</a>
+                    <a href="/research-ja.html"> 研究</a>
                   </div>
                 
               
@@ -146,7 +146,7 @@ function save_theme(theme){
 
                   
                   <div class="menu_item" current="false">
-                    <a href="/~swaka/others-ja.html"> その他</a>
+                    <a href="/others-ja.html"> その他</a>
                   </div>
                 
               
@@ -164,7 +164,7 @@ function save_theme(theme){
   
     
     
-      <a href="/~swaka/others/blog.html">&lt;&lt; ブログ</a>
+      <a href="/others/blog.html">&lt;&lt; ブログ</a>
     
   
 </span>
@@ -224,11 +224,11 @@ function save_theme(theme){
     <h2 id="やりたいこと">やりたいこと</h2>
 <p>下の画像のように， <code class="highlighter-rouge highlight">tikzcd</code> 内に overlay っぽい効果を反映させたい．</p>
 
-<p><img src="/~swaka/assets/img/overlay_in_tikzcd-1.jpg" alt="overlay_in_tikzcd-1.jpg" title="overlay_in_tikzcd-1">
-<img src="/~swaka/assets/img/overlay_in_tikzcd-2.jpg" alt="overlay_in_tikzcd-2.jpg" title="overlay_in_tikzcd-2"></p>
+<p><img src="/assets/img/overlay_in_tikzcd-1.jpg" alt="overlay_in_tikzcd-1.jpg" title="overlay_in_tikzcd-1">
+<img src="/assets/img/overlay_in_tikzcd-2.jpg" alt="overlay_in_tikzcd-2.jpg" title="overlay_in_tikzcd-2"></p>
 
 <h2 id="結論">結論</h2>
-<p><a href="https://tex.stackexchange.com/questions/230943/beamer-tikz-cd-uncover-does-not-work" target="_blank">StackExchange<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a> の回答(とそのコメント)に書いてある通りにすれば良い．</p>
+<p><a href="https://tex.stackexchange.com/questions/230943/beamer-tikz-cd-uncover-does-not-work" target="_blank">StackExchange<svg class="target-blank-icon"><use xlink:href="/assets/img/icons.svg#target_blank"></use></svg></a> の回答(とそのコメント)に書いてある通りにすれば良い．</p>
 
 <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\documentclass</span><span class="na">[dvipdfmx]</span><span class="p">{</span>beamer<span class="p">}</span>
 
@@ -263,7 +263,7 @@ function save_theme(theme){
 
 <h2 id="解説">解説</h2>
 <h3 id="tikzset"><code class="highlighter-rouge highlight">\tikzset</code></h3>
-<p><a href="/~swaka/2019/08/09/tikz.html">tikz とか pgf とか beamer とか</a> を参照．</p>
+<p><a href="/2019/08/09/tikz.html">tikz とか pgf とか beamer とか</a> を参照．</p>
 
 <h3 id="visible-on-の適用">
 <code class="highlighter-rouge highlight">visible on</code> の適用</h3>
@@ -272,7 +272,7 @@ function save_theme(theme){
 <code class="highlighter-rouge highlight">\ar[r, visible on=&lt;2-&gt;]</code> などと記述すれば良い</li>
   <li>node に適用するには <code class="highlighter-rouge highlight">|[...]|</code> なる構文を用いて，
 <code class="highlighter-rouge highlight">|[visible on=&lt;2-&gt;]| D</code> などと書く．
-この構文は <a href="http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf" target="_blank">pgfmanual.pdf<svg class="target-blank-icon"><use xlink:href="/~swaka/assets/img/icons.svg#target_blank"></use></svg></a> の “57 Matrix Library”(p. 646) で説明されている．</li>
+この構文は <a href="http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf" target="_blank">pgfmanual.pdf<svg class="target-blank-icon"><use xlink:href="/assets/img/icons.svg#target_blank"></use></svg></a> の “57 Matrix Library”(p. 646) で説明されている．</li>
 </ul>
 
   </div>
@@ -283,7 +283,7 @@ function save_theme(theme){
     <span></span>  <!-- for flexbox -->
   
   
-    <a href="/~swaka/2019/08/09/tikz.html">
+    <a href="/2019/08/09/tikz.html">
       (old) tikz とか pgf とか beamer とか &gt;
     </a>
   
