@@ -14,6 +14,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
+exports.ArticleListHandler = exports.isArticleObjectArray = void 0;
 var base_1 = require("./base");
 // <reference path="base.ts"/>
 var ArticleType;
@@ -57,7 +58,8 @@ function isArticleProceedingsObject(arg) {
         base_1.hasPropertyOfType(arg, "title", "string") &&
         base_1.hasPropertyOfType(arg, "year", "number") &&
         base_1.hasPropertyOfType(arg, "journal", "string") &&
-        base_1.hasPropertyOfType(arg, "journal-url", "string");
+        base_1.hasPropertyOfType(arg, "journal-url", "string") &&
+        base_1.hasPropertyOfType(arg, "journal-page", "string");
 }
 function isArticleObject(arg) {
     return isArticlePreprintObject(arg) || isArticleToappearObject(arg) || isArticlePublishedObjet(arg) || isArticleProceedingsObject(arg);
@@ -95,7 +97,8 @@ var Article = /** @class */ (function (_super) {
         }
         else if (this.data.type == ArticleType.proceedings) {
             journal = this.document.createElement("span");
-            journal.appendChild(base_1.makeAnchor(this.window, this.data.journal, this.data["journal-url"]));
+            var journal_str = this.data.journal + ", " + this.data["journal-page"];
+            journal.appendChild(base_1.makeAnchor(this.window, journal_str, this.data["journal-url"]));
         }
         // year
         var year = this.document.createElement("span");
@@ -236,6 +239,7 @@ function isNonRefereedArticle(article) {
 },{"./base":2}],2:[function(require,module,exports){
 "use strict";
 exports.__esModule = true;
+exports.OutputFormat = exports.WorkList = exports.Work = exports.Lang = exports.hasOptionalPropertyOfType = exports.hasPropertyOfType = exports.hasProperty = exports.makeAnchor = void 0;
 function makeAnchor(window, text, url, target_blank) {
     if (target_blank === void 0) { target_blank = true; }
     var document = window.document;
@@ -428,6 +432,7 @@ var OutputFormat;
 },{}],3:[function(require,module,exports){
 "use strict";
 exports.__esModule = true;
+exports.isValidJson = void 0;
 var base_1 = require("./base");
 var talk_1 = require("./talk");
 var article_1 = require("./article");
@@ -575,6 +580,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
+exports.TalkListHandler = exports.isTalkObjectArray = exports.isTalkObject = exports.isTalkInfo = exports.isTalkBaseInfo = void 0;
 var base_1 = require("./base");
 function isTalkBaseInfo(arg) {
     return (typeof arg == "object") && (arg != null) &&
