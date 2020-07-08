@@ -340,7 +340,8 @@ function save_theme(theme){
 <h2 id="tikz">tikz</h2>
 
 <h3 id="tikzset">tikzset</h3>
-<p><a href="/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex">tikz.code.tex</a></p>
+<p><code class="highlighter-rouge highlight">/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex</code></p>
+
 <div filename="tikz.code.tex (l.71)" class="language-tex highlighter-rouge"><div class="highlight">
 <div class="named-block-filename">tikz.code.tex (l.71)</div>
 <pre class="highlight"><code><span class="k">\def\tikzset</span><span class="p">{</span><span class="k">\pgfqkeys</span><span class="p">{</span>/tikz<span class="p">}}</span>
@@ -359,12 +360,12 @@ function save_theme(theme){
 
 <h3 id="setbeamertemplate">\setbeamertemplate</h3>
 <p><code class="highlighter-rouge highlight">\setbeamertemplate</code> は <code class="highlighter-rouge highlight">pgfkeys</code> を使ってると思ったけど，
-<a href="/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty">beamerbasetemplates.sty</a> あたりを読む限りは違いそう？
+<code class="highlighter-rouge highlight">/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty</code> あたりを読む限りは違いそう？
 ていうか <code class="highlighter-rouge highlight">beamer/</code> 内で <code class="highlighter-rouge highlight">grep</code> しても <code class="highlighter-rouge highlight">pgfkey</code> がヒットしないので，
 そもそも <code class="highlighter-rouge highlight">beamer</code> では <code class="highlighter-rouge highlight">pgfkeys</code> を使っていない？</p>
 
 <h3 id="setbeamercolor">\setbeamercolor</h3>
-<p><a href="/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasecolor.sty">beamerbasecolor.sty</a></p>
+<p><code class="highlighter-rouge highlight">/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasecolor.sty</code></p>
 <div filename="beamerbasecolor.sty" class="language-tex highlighter-rouge"><div class="highlight">
 <div class="named-block-filename">beamerbasecolor.sty</div>
 <pre class="highlight"><code><span class="k">\def\setbeamercolor</span><span class="p">{</span><span class="k">\@</span>ifstar<span class="p">{</span><span class="k">\beamer</span>@clearbeamercolor<span class="p">}{</span><span class="k">\beamer</span>@setbeamercolor<span class="p">}}</span>
