@@ -1,0 +1,38 @@
+{% comment %}
+-*- engine: liquid -*-
+args: lang
+{% endcomment %}
+
+<!-- <div id="list-of-pages"> -->
+<ul>
+  {% if include.lang %}
+    {% comment %}ページの言語が指定されているとき{% endcomment %}
+    {% assign page_list = site.pages | where: "lang", include.lang %}
+    {% for pg in page_list %}
+      <li>
+        {% include_relative link-in-list-of-pages.html pg=pg%}
+      </li>
+    {% endfor %}
+  {% else %}
+    {% comment %}
+    ページの言語が指定されていないときは，
+    言語未指定またはen,ja以外の言語が指定されているものを表示
+    {% endcomment %}
+    {% for pg in site.pages %}
+      {% assign lang_matched = false %}
+      {% for lang_data in site.data.languages %}
+        {% assign lang = lang_data.key %}
+        {% if pg.lang == lang %}
+          {% assign lang_matched = true %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+      {% unless lang_matched %}
+        <li>
+          {% include_relative link-in-list-of-pages.html pg=pg%}
+        </li>
+      {% endunless %}
+    {% endfor %}
+  {% endif %}
+</ul>
+<!-- </div> -->
