@@ -173,7 +173,7 @@ function save_theme(theme){
 
         <span id="last-modified">
           This site was last updated on
-          2020-07-22.
+          2020-08-08.
           
         </span>
       </div>
@@ -273,7 +273,7 @@ function save_theme(theme){
 <code class="highlighter-rouge highlight">Theorem \ref{theorem:hoge}</code>を<code class="highlighter-rouge highlight">Proposition \ref{theorem:hoge}</code>に書き換える</li>
 </ol>
 
-<p>の3つです<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>。
+<p>の3つです<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>。
 1.や2.は避けようがないですし、書き換える箇所もそれぞれ1箇所しかないので、大した手間はかかりません。
 しかし、3.は参照している部分全ての書き換えが必要ですし、置換もやりづらいです。
 cleverefを使えば、3.の手間を省くことができます。</p>
@@ -374,7 +374,7 @@ cleverefを使えば、3.の手間を省くことができます。</p>
   <p>equation figure table page part chapter section appendix enumi footnote theorem lemma corollary proposition definition result example remark note algorithm listing line</p>
 </blockquote>
 
-<p>しかし、省略したことにより問題が発生する場合<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>もあるので、基本的には明示的に<code class="highlighter-rouge highlight">\crefname</code>で指定した方が良いと思います。</p>
+<p>しかし、省略したことにより問題が発生する場合<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup>もあるので、基本的には明示的に<code class="highlighter-rouge highlight">\crefname</code>で指定した方が良いと思います。</p>
 
 <p>(12/11 25時ごろ追記)<code class="highlighter-rouge highlight">\crefname</code>を省略する場合には、下記の<code class="highlighter-rouge highlight">capitalize</code>オプションを指定してください。</p>
 
@@ -390,13 +390,13 @@ cleverefを使えば、3.の手間を省くことができます。</p>
 <h2 id="まとめ">まとめ</h2>
 <p>というわけで、非常に便利なパッケージcleverefを皆さん使いましょう。
 上記では説明しきれなかった詳細については、<a href="http://tug.ctan.org/macros/latex/contrib/cleveref/cleveref.pdf" target="_blank">cleverefマニュアル<svg class="target-blank-icon"><use xlink:href="/assets/img/icons.svg#target_blank"></use></svg></a>を参照して下さい。</p>
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>labelの名前がtheoremのままですが、出力には関係ないですし、エディタの置換機能を使えば容易に書き換えられます。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>labelの名前がtheoremのままですが、出力には関係ないですし、エディタの置換機能を使えば容易に書き換えられます。 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:2">
-      <p>例えば<a href="http://qiita.com/wktkshn/items/f38a759fd6b9e0a81de7" target="_blank">arXivへの投稿<svg class="target-blank-icon"><use xlink:href="/assets/img/icons.svg#target_blank"></use></svg></a>など <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    <li id="fn:2" role="doc-endnote">
+      <p>例えば<a href="http://qiita.com/wktkshn/items/f38a759fd6b9e0a81de7" target="_blank">arXivへの投稿<svg class="target-blank-icon"><use xlink:href="/assets/img/icons.svg#target_blank"></use></svg></a>など <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
 </div>

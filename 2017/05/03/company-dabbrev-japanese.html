@@ -173,7 +173,7 @@ function save_theme(theme){
 
         <span id="last-modified">
           This site was last updated on
-          2020-07-22.
+          2020-08-08.
           
         </span>
       </div>
@@ -263,7 +263,7 @@ function save_theme(theme){
 <p>変数 <code class="highlighter-rouge highlight">comapny-dabbrev-char-regexp</code> は，company-dabbrevで補完対象となる文字(文字列ではないことに注意)を指定する正規表現．
 デフォルト値は <code class="highlighter-rouge highlight">"\\sw"</code> で，これは「単語構成文字」にマッチする．
 問題なのは，アルファベットだけでなくひらがなや漢字もこれにマッチしてしまうこと．
-というわけで，ASCII文字でかつ単語構成文字のみにマッチするようなcategoryを自作して，それを正規表現で指定しました<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>．</p>
+というわけで，ASCII文字でかつ単語構成文字のみにマッチするようなcategoryを自作して，それを正規表現で指定しました<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>．</p>
 
 <p>syntax table や category table の詳細については，<a href="http://emacs.rubikitch.com/syntax-table-beginner/" target="_blank">るびきち氏のページ<svg class="target-blank-icon"><use xlink:href="/assets/img/icons.svg#target_blank"></use></svg></a>や<a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Syntax-Tables.html" target="_blank">マニュアル<svg class="target-blank-icon"><use xlink:href="/assets/img/icons.svg#target_blank"></use></svg></a>あたりを参考にして下さい．</p>
 
@@ -273,10 +273,10 @@ function save_theme(theme){
 僕はこちらについては必要性を感じていないのでひとまず保留とします．</li>
   <li>別の方法や，より良い方法などがあれば，教えてもらえると嬉しいです．</li>
 </ul>
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>本当は 「<code class="highlighter-rouge highlight">"\\sw"</code> かつ <code class="highlighter-rouge highlight">"\\ca"</code>」 を表す正規表現があれば一番良いのでしょうが，どうやらそれはなさそう． <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>本当は 「<code class="highlighter-rouge highlight">"\\sw"</code> かつ <code class="highlighter-rouge highlight">"\\ca"</code>」 を表す正規表現があれば一番良いのでしょうが，どうやらそれはなさそう． <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
 </div>

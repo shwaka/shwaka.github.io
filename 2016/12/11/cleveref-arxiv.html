@@ -173,7 +173,7 @@ function save_theme(theme){
 
         <span id="last-modified">
           This site was last updated on
-          2020-07-22.
+          2020-08-08.
           
         </span>
       </div>
@@ -235,7 +235,7 @@ function save_theme(theme){
 </ul>
 
 <h2 id="arxivでcleverefを使う方法">arXivでcleverefを使う方法</h2>
-<p>arXivはコンパイルの際に勝手にhyperrefを読み込む<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>ため、cleverefを用いたコードを何も考えずに投稿すると正しく表示されません。</p>
+<p>arXivはコンパイルの際に勝手にhyperrefを読み込む<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>ため、cleverefを用いたコードを何も考えずに投稿すると正しく表示されません。</p>
 
 <p>しかし、以下の2点を守れば正しく表示されるようになります。</p>
 
@@ -276,8 +276,8 @@ function save_theme(theme){
 </div></div>
 
 <p>上記のように、cleverefにpoormanオプションを指定して読み込みます。
-これをコンパイルすると、同じディレクトリに<code class="highlighter-rouge highlight">hoge.sed</code>なるファイル<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>が生成されます。
-これは<code class="highlighter-rouge highlight">hoge.tex</code>からcleveref依存の部分を全て取り去る方法が記されたテキストファイルで、terminal上で次のように入力して利用します<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>。</p>
+これをコンパイルすると、同じディレクトリに<code class="highlighter-rouge highlight">hoge.sed</code>なるファイル<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup>が生成されます。
+これは<code class="highlighter-rouge highlight">hoge.tex</code>からcleveref依存の部分を全て取り去る方法が記されたテキストファイルで、terminal上で次のように入力して利用します<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote">3</a></sup>。</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sed</span> <span class="nt">-f</span> hoge.sed hoge.tex <span class="o">&gt;</span> hogeforpoorman.tex
 </code></pre></div></div>
@@ -309,16 +309,16 @@ function save_theme(theme){
 <p>(12/11 25時ごろ追記)
 <code class="highlighter-rouge highlight">\cref</code>と<code class="highlighter-rouge highlight">\Cref</code>について勘違いしていたことを指摘されたので、修正しておきました。
 詳細は<a href="http://qiita.com/wktkshn/items/110cd6007837938e6c88" target="_blank">前の記事<svg class="target-blank-icon"><use xlink:href="/assets/img/icons.svg#target_blank"></use></svg></a>を参照してください。</p>
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>00README.XXXなる名前のファイルを用いればhyperrefの読み込みを抑制できますが、何故かこの場合でも明示的に<code class="highlighter-rouge highlight">\crefname</code>によって設定をする必要があります。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>00README.XXXなる名前のファイルを用いればhyperrefの読み込みを抑制できますが、何故かこの場合でも明示的に<code class="highlighter-rouge highlight">\crefname</code>によって設定をする必要があります。 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:2">
-      <p>ファイル名は元々のTeXファイルの名前で決まります。 <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    <li id="fn:2" role="doc-endnote">
+      <p>ファイル名は元々のTeXファイルの名前で決まります。 <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:3">
-      <p>こちらで動作確認したのはubuntuのみ。macはhogeおそらくそのままで使えると思いますが、windowsは自分でsedをインストールする必要があるかもしれません。”windows sed”などでググってください。 <a href="#fnref:3" class="reversefootnote">↩</a></p>
+    <li id="fn:3" role="doc-endnote">
+      <p>こちらで動作確認したのはubuntuのみ。macはhogeおそらくそのままで使えると思いますが、windowsは自分でsedをインストールする必要があるかもしれません。”windows sed”などでググってください。 <a href="#fnref:3" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
 </div>
